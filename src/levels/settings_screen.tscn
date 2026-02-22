@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://dotg5bgp52lts"]
+
+[ext_resource type="FontFile" uid="uid://e2vvqcbojd58" path="res://art/Roundex.otf" id="1_ryji8"]
+[ext_resource type="Script" uid="uid://bngtofpo7rrga" path="res://src/levels/settings_screen.gd" id="1_ua4pu"]
+[ext_resource type="Texture2D" uid="uid://b0f2623b1wuap" path="res://art/return.png" id="2_ua4pu"]
+[ext_resource type="Texture2D" uid="uid://dbdi08lw1od1w" path="res://art/returnHover.png" id="3_7x8ew"]
+[ext_resource type="BitMap" uid="uid://ww23ewpoxplu" path="res://art/returnBitMap.png" id="4_lfphf"]
+
+[node name="SettingsScreen" type="Node2D"]
+script = ExtResource("1_ua4pu")
+
+[node name="ReadMe" type="RichTextLabel" parent="."]
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 780.0
+offset_bottom = 427.0
+theme_override_fonts/normal_font = ExtResource("1_ryji8")
+theme_override_font_sizes/normal_font_size = 31
+text = "Instructions:
+Destroy projectiles before they hit you!
+
+Use [W] [A] [S] [D] for character controls
+[K] and [L] to swing
+[I] for menu screen
+
+FullScreen for Best Experience"
+
+[node name="ReturnButton" type="TextureButton" parent="."]
+offset_left = 1578.0
+offset_top = 726.0
+offset_right = 2602.0
+offset_bottom = 1750.0
+scale = Vector2(0.285, 0.285)
+texture_normal = ExtResource("2_ua4pu")
+texture_hover = ExtResource("3_7x8ew")
+texture_click_mask = ExtResource("4_lfphf")
+
+[node name="OffsetPlus" type="Button" parent="."]
+offset_left = 1644.0
+offset_top = 64.0
+offset_right = 1790.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 101
+text = "+"
+
+[node name="OffsetPlus2" type="Button" parent="."]
+offset_left = 1800.0
+offset_top = 99.0
+offset_right = 1892.0
+offset_bottom = 191.0
+theme_override_font_sizes/font_size = 61
+text = "+"
+
+[node name="OffsetMinus" type="Button" parent="."]
+offset_left = 1299.0
+offset_top = 63.0
+offset_right = 1445.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 101
+text = "-"
+
+[node name="OffsetMinus2" type="Button" parent="."]
+offset_left = 1201.0
+offset_top = 102.0
+offset_right = 1293.0
+offset_bottom = 194.0
+theme_override_font_sizes/font_size = 61
+text = "-"
+
+[node name="OffsetNumber" type="RichTextLabel" parent="."]
+offset_left = 1455.0
+offset_top = 107.0
+offset_right = 1634.0
+offset_bottom = 252.0
+theme_override_fonts/normal_font = ExtResource("1_ryji8")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "[center] 0ms
+"
+scroll_active = false
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="OffsetPlus" to="." method="_on_offset_plus_pressed"]
+[connection signal="pressed" from="OffsetPlus2" to="." method="_on_offset_plus_2_pressed"]
+[connection signal="pressed" from="OffsetMinus" to="." method="_on_offset_minus_pressed"]
+[connection signal="pressed" from="OffsetMinus2" to="." method="_on_offset_minus_2_pressed"]

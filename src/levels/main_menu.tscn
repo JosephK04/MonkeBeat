@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://co5rqvgakhvob"]
+
+[ext_resource type="Script" uid="uid://hgl8y2ft0g0u" path="res://src/levels/main_menu.gd" id="1_hw13d"]
+[ext_resource type="Texture2D" uid="uid://3r7vr07y2eww" path="res://art/start.png" id="1_pcjj0"]
+[ext_resource type="Texture2D" uid="uid://ddtqjuc2yshrc" path="res://art/startHover.png" id="2_hw13d"]
+[ext_resource type="BitMap" uid="uid://b325lpw2jxsea" path="res://art/startBitMap.png" id="3_3k0q2"]
+[ext_resource type="Texture2D" uid="uid://ceuln1jprsnil" path="res://art/Settings.png" id="4_k3jgl"]
+[ext_resource type="Texture2D" uid="uid://n2y2gtliwyum" path="res://art/SettingsHover.png" id="5_76r1k"]
+[ext_resource type="BitMap" uid="uid://drmx5qrbxyus0" path="res://art/SettingsBitMap.png" id="6_mvttq"]
+[ext_resource type="Texture2D" uid="uid://bi6mj7n5r56y2" path="res://art/Edit.png" id="7_nprcd"]
+[ext_resource type="Texture2D" uid="uid://c7ghkgurccsek" path="res://art/EditHover.png" id="8_0uks7"]
+[ext_resource type="BitMap" uid="uid://cufc1kk47v1vq" path="res://art/EditBitMap.png" id="9_txhld"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_hw13d")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 30.0
+offset_right = 1528.0
+offset_bottom = 1054.0
+texture_normal = ExtResource("1_pcjj0")
+texture_hover = ExtResource("2_hw13d")
+texture_click_mask = ExtResource("3_3k0q2")
+
+[node name="Options" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1250.0
+offset_top = 207.0
+offset_right = 2274.0
+offset_bottom = 1231.0
+scale = Vector2(0.715, 0.715)
+texture_normal = ExtResource("4_k3jgl")
+texture_hover = ExtResource("5_76r1k")
+texture_click_mask = ExtResource("6_mvttq")
+
+[node name="Edit" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 249.0
+offset_right = 1216.0
+offset_bottom = 1273.0
+scale = Vector2(0.555, 0.555)
+texture_normal = ExtResource("7_nprcd")
+texture_hover = ExtResource("8_0uks7")
+texture_click_mask = ExtResource("9_txhld")
+
+[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Control/Edit" to="." method="_on_edit_pressed"]

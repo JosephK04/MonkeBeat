@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://drmx5qrbxyus0"
+path="res://.godot/imported/SettingsBitMap.png-2d750405c2089eecd906facc2b5ec35f.res"
+
+[deps]
+
+source_file="res://art/SettingsBitMap.png"
+dest_files=["res://.godot/imported/SettingsBitMap.png-2d750405c2089eecd906facc2b5ec35f.res"]
+
+[params]
+
+create_from=0
+threshold=0.09

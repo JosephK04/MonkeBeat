@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cufc1kk47v1vq"
+path="res://.godot/imported/EditBitMap.png-e65222ffd029366653185c3c4b3cf1c8.res"
+
+[deps]
+
+source_file="res://art/EditBitMap.png"
+dest_files=["res://.godot/imported/EditBitMap.png-e65222ffd029366653185c3c4b3cf1c8.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

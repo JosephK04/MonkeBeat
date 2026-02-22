@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://oyr2bq6dvdto"]
+
+[ext_resource type="Script" uid="uid://c0j35162xutrr" path="res://src/levels/game_level.gd" id="1_344b1"]
+[ext_resource type="PackedScene" uid="uid://cey8irc2qc4kb" path="res://src/levels/level_editor.tscn" id="2_bknqm"]
+[ext_resource type="Script" uid="uid://cwnynsmh8rxn8" path="res://src/objects/hit_logic.gd" id="3_bowuy"]
+[ext_resource type="Script" uid="uid://c6up50b02xx6o" path="res://src/objects/sound_fx.gd" id="4_in5vt"]
+[ext_resource type="AudioStream" uid="uid://c3yw1bq7oc0ee" path="res://sounds/soft-hitnormal.wav" id="5_suhqc"]
+[ext_resource type="AudioStream" uid="uid://bbseb55bm573w" path="res://sounds/combobreak.ogg" id="6_xm2e2"]
+[ext_resource type="PackedScene" uid="uid://tb7mwlbja25b" path="res://src/objects/game_ui.tscn" id="7_xm2e2"]
+
+[sub_resource type="Environment" id="Environment_bknqm"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.43
+glow_hdr_threshold = 0.92
+
+[node name="GameLevel" type="Node2D"]
+script = ExtResource("1_344b1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bknqm")
+
+[node name="LevelEditor" parent="." instance=ExtResource("2_bknqm")]
+
+[node name="HitLogic" type="Node2D" parent="."]
+script = ExtResource("3_bowuy")
+
+[node name="SoundFx" type="Node2D" parent="."]
+script = ExtResource("4_in5vt")
+
+[node name="pop1_SFX" type="AudioStreamPlayer" parent="SoundFx"]
+stream = ExtResource("5_suhqc")
+volume_db = -3.34
+
+[node name="miss_SFX" type="AudioStreamPlayer" parent="SoundFx"]
+stream = ExtResource("6_xm2e2")
+volume_db = -6.875
+
+[node name="GameUI" parent="." instance=ExtResource("7_xm2e2")]

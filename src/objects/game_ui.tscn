@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://tb7mwlbja25b"]
+
+[ext_resource type="Script" uid="uid://wq3opeuxvx03" path="res://src/objects/game_ui.gd" id="1_3iv6v"]
+[ext_resource type="FontFile" uid="uid://e2vvqcbojd58" path="res://art/Roundex.otf" id="1_rtimd"]
+
+[sub_resource type="Animation" id="Animation_3iv6v"]
+resource_name = "points"
+length = 0.035
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ComboLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.035),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.265, 1.265)]
+}
+
+[sub_resource type="Animation" id="Animation_f2jyc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ComboLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3hcya"]
+_data = {
+&"RESET": SubResource("Animation_f2jyc"),
+&"points": SubResource("Animation_3iv6v")
+}
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3iv6v")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 711.0
+offset_bottom = 125.0
+theme_override_fonts/normal_font = ExtResource("1_rtimd")
+theme_override_font_sizes/normal_font_size = 46
+text = "0 PTS"
+scroll_active = false
+
+[node name="ComboLabel" type="RichTextLabel" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 21.0
+offset_top = 905.0
+offset_right = 895.0
+offset_bottom = 1058.0
+theme_override_fonts/normal_font = ExtResource("1_rtimd")
+theme_override_font_sizes/normal_font_size = 91
+text = "0x"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_3hcya")
+}
+autoplay = "points"
