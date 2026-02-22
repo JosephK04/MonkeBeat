@@ -27,6 +27,7 @@ func _process(_delta):
 			note_array.pop_front()
 			Signals.emit_signal("miss")
 			Signals.ResetCombo.emit()
+			Signals.emit_signal("note_judged", "miss")
 			var press_score_text = "MISS"
 			var timing_text = score_text.instantiate()
 			add_child(timing_text)
@@ -46,6 +47,7 @@ func _on_tapped():
 			note_array.pop_front()
 			Signals.emit_signal("miss")
 			Signals.ResetCombo.emit()
+			Signals.emit_signal("note_judged", "miss")
 			var press_score_text = "miss"
 			var timing_text = score_text.instantiate()
 			add_child(timing_text)
@@ -60,12 +62,15 @@ func _on_tapped():
 	if diff <= perfect_window:
 		score = perfect_score
 		press_score_text = "PERFECT"
+		Signals.emit_signal("note_judged", "perfect")
 	elif diff <= great_window:
 		score = great_score
 		press_score_text = "GREAT"
+		Signals.emit_signal("note_judged", "great")
 	elif diff <= ok_window:
 		score = ok_score
 		press_score_text = "OK"
+		Signals.emit_signal("note_judged", "ok")
 	else:
 		return
 	

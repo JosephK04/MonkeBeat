@@ -37,3 +37,9 @@ func _on_tapped():
 func _on_miss():
 	flash(Color.RED, 0.1)
 	Signals.emit_signal("pop_effect", "miss")
+
+func fade_transition():
+	
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/FadeRect, "color:a", 1.0, 1.5)
+	await tween.finished

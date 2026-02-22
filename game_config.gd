@@ -15,11 +15,12 @@ var ratio = (BASE_SPEED / projectile_speed)
 var result_score = 0
 var result_max_combo = 0
 var result_miss = 0
-
+var result_accuracy = 0.0
+var grade = ""
 #scores
-const BASE_PERFECT_WINDOW = 0.05
-const BASE_GREAT_WINDOW = 0.09
-const BASE_OK_WINDOW = 0.13
+const BASE_PERFECT_WINDOW = 0.06
+const BASE_GREAT_WINDOW = 0.1
+const BASE_OK_WINDOW = 0.14
 
 #Parsing Storing logic for Maps
 var current_level_name = "CrescentExpressway"
@@ -34,6 +35,22 @@ var level_info = {
 	}
 }
 
+func result_grade():
+	if result_accuracy == 100: 
+		grade = "[color=silver] SS [/color]"
+	if result_miss == 0 and result_accuracy >= 90:
+		grade = "[color=gold] S [/color]"
+	elif result_accuracy >= 90: 
+		grade = "[color=green] A [/color]"
+	elif result_accuracy >= 80:
+		grade = "[color=yellow] B [/color]"
+	elif result_accuracy >= 70:
+		grade = "[color=blue] C [/color]"
+	elif result_accuracy >= 60:
+		grade = "[color=red] D [/color]"
+	else:
+		grade = "[color=red] F [/color]"
+		
 func get_notes_path(level_name: String) -> String:
 	var filename = level_info[level_name]["notes_path"]
 	var user_path = "user://beatmaps/" + filename

@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://b847f252f1vvf"]
+
+[ext_resource type="Script" uid="uid://civ8uy2g87i25" path="res://src/levels/result_screen.gd" id="1_bk157"]
+[ext_resource type="FontFile" uid="uid://e2vvqcbojd58" path="res://art/Roundex.otf" id="2_v8gv7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yuv1"]
+bg_color = Color(0.0562916, 0.0562916, 0.0562916, 0.868)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6sbv"]
+bg_color = Color(0.0646965, 0.0646965, 0.0646965, 0.873)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yybny"]
+bg_color = Color(0.038, 0.038, 0.038, 0.912)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwq4g"]
+bg_color = Color(0, 0, 0, 0.867)
+
+[node name="ResultScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bk157")
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1392.0
+offset_top = 633.0
+offset_right = 1803.0
+offset_bottom = 783.0
+theme_override_fonts/font = ExtResource("2_v8gv7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_8yuv1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f6sbv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yybny")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jwq4g")
+text = "Restart"
+
+[node name="MenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1379.0
+offset_top = 830.0
+offset_right = 1790.0
+offset_bottom = 980.0
+theme_override_fonts/font = ExtResource("2_v8gv7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_8yuv1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f6sbv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yybny")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jwq4g")
+text = "Menu"
+
+[node name="ScoreCount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 46.0
+offset_right = 1138.0
+offset_bottom = 292.0
+theme_override_fonts/normal_font = ExtResource("2_v8gv7")
+theme_override_font_sizes/normal_font_size = 85
+bbcode_enabled = true
+scroll_active = false
+
+[node name="MissCount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 280.0
+offset_right = 1136.0
+offset_bottom = 526.0
+theme_override_fonts/normal_font = ExtResource("2_v8gv7")
+theme_override_font_sizes/normal_font_size = 85
+bbcode_enabled = true
+scroll_active = false
+
+[node name="MaxComboCount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 483.0
+offset_right = 1134.0
+offset_bottom = 729.0
+theme_override_fonts/normal_font = ExtResource("2_v8gv7")
+theme_override_font_sizes/normal_font_size = 85
+bbcode_enabled = true
+scroll_active = false
+
+[node name="Percentage" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 697.0
+offset_right = 1130.0
+offset_bottom = 943.0
+theme_override_fonts/normal_font = ExtResource("2_v8gv7")
+theme_override_font_sizes/normal_font_size = 85
+bbcode_enabled = true
+scroll_active = false
+
+[node name="GradeLetter" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1274.0
+offset_top = 87.0
+offset_right = 1811.0
+offset_bottom = 546.0
+theme_override_fonts/normal_font = ExtResource("2_v8gv7")
+theme_override_font_sizes/normal_font_size = 265
+bbcode_enabled = true
+text = "[center] "
+scroll_active = false
+
+[node name="FadeRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -108.0
+offset_top = 1304.0
+offset_right = 1847.0
+offset_bottom = 2426.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

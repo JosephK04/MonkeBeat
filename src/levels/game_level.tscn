@@ -37,3 +37,14 @@ stream = ExtResource("6_xm2e2")
 volume_db = -6.875
 
 [node name="GameUI" parent="." instance=ExtResource("7_xm2e2")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer"]
+z_index = 1
+offset_top = -8.0
+offset_right = 1916.0
+offset_bottom = 1083.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

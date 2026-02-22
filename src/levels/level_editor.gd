@@ -10,6 +10,8 @@ var notes_remaining = 0
 var notes = []
 var TRAVEL_TIME = GameConfig.get_travel_time()
 var active_hit_times = []
+var fading = false
+var last_note_time := 0.0
 
 func _ready():
 	in_edit_mode = GameConfig.edit_mode
@@ -47,8 +49,9 @@ func _process(_delta):
 		else:
 			break
 	
-	if notes_remaining == 0 and not in_edit_mode:
-		fade_out_music()
+	if not fading and notes.size() == 0 and song_time > last_note_time + TRAVEL_TIME:
+		fading = true
+		fade_out_music()	
 
 func start_music():
 	var wait_time = 2.0
@@ -56,10 +59,14 @@ func start_music():
 	music_player.play()
 
 func fade_out_music():
+	get_parent().get_node("GameUI").save_results()
 	var tween = create_tween()
 	tween.tween_property(music_player, "volume_db", -40, 3.0)
 	tween.tween_callback(func(): music_player.stop())
-
+	get_parent().fade_transition()
+	await get_tree().create_timer(2.5).timeout
+	get_tree().change_scene_to_file("res://src/levels/result_screen.tscn")
+	
 func start_level(loaded_notes: Array):
 	var baked_delay = 0.04
 	notes = loaded_notes
@@ -67,6 +74,9 @@ func start_level(loaded_notes: Array):
 		note.time -= baked_delay
 		note.direction = int(note.direction)
 	notes_remaining = notes.size()
+	
+	if notes.size() > 0:
+		last_note_time = notes[-1].time
 
 func spawn_projectile(note: Dictionary, late_by):
 	var proj = CreateProjectile(note.direction)

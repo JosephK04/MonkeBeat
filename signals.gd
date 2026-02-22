@@ -8,3 +8,5 @@ signal miss
 signal IncrementScore(incr: int)
 signal IncrementCombo()
 signal ResetCombo()
+
+signal note_judged(accuracy)
