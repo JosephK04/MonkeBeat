@@ -98,10 +98,10 @@ scroll_active = false
 
 [node name="GradeLetter" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 1274.0
-offset_top = 87.0
-offset_right = 1811.0
-offset_bottom = 546.0
+offset_left = 1331.0
+offset_top = 73.0
+offset_right = 1868.0
+offset_bottom = 532.0
 theme_override_fonts/normal_font = ExtResource("2_v8gv7")
 theme_override_font_sizes/normal_font_size = 265
 bbcode_enabled = true
@@ -110,10 +110,10 @@ scroll_active = false
 
 [node name="FadeRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -34.0
-offset_top = -29.0
-offset_right = 1921.0
-offset_bottom = 1093.0
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 1939.0
+offset_bottom = 1104.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
