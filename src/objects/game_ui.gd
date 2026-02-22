@@ -6,6 +6,7 @@ var max_combo: int = 0
 var miss_count: int = -1
 var notes_passed: int = 0
 var total_score: int = 0
+var percentage: int = 0.0
 
 func _ready():
 	Signals.IncrementScore.connect(IncrementScore)
@@ -27,7 +28,7 @@ func _on_note_judged(accuracy):
 			pass
 	notes_passed += 1
 	
-	var percentage = total_score / (notes_passed * 100.0) * 100.0
+	percentage = total_score / (notes_passed * 100.0) * 100.0
 	GameConfig.result_accuracy = percentage
 	%AccuracyLabel.text = "%.2f" % percentage + "%"
 

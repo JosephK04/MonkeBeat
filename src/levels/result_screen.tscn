@@ -110,10 +110,10 @@ scroll_active = false
 
 [node name="FadeRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -108.0
-offset_top = 1304.0
-offset_right = 1847.0
-offset_bottom = 2426.0
+offset_left = -34.0
+offset_top = -29.0
+offset_right = 1921.0
+offset_bottom = 1093.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 

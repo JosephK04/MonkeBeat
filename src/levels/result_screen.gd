@@ -8,8 +8,8 @@ func _ready():
 	$ScoreCount.text = "Score: " + str(GameConfig.result_score)
 	$MaxComboCount.text = "Max Combo: [color=green]" + str(GameConfig.result_max_combo) + "[/color]"
 	$MissCount.text = "Misses: [color=red]" + str(GameConfig.result_miss) + "[/color]"
-	$Percentage.text = "Accuracy: " + str("%.2f" % GameConfig.result_accuracy)
-	$GradeLetter.text = GameConfig.grade
+	$Percentage.text = "Accuracy: " + str("%.2f" % GameConfig.result_accuracy) + "%"
+	$GradeLetter.text = "[center]" + GameConfig.result_grade()
 	
 func _on_restart_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://src/levels/game_level.tscn")

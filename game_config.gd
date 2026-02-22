@@ -38,7 +38,7 @@ var level_info = {
 func result_grade():
 	if result_accuracy == 100: 
 		grade = "[color=silver] SS [/color]"
-	if result_miss == 0 and result_accuracy >= 90:
+	elif result_miss == 0 and result_accuracy >= 90:
 		grade = "[color=gold] S [/color]"
 	elif result_accuracy >= 90: 
 		grade = "[color=green] A [/color]"
@@ -51,6 +51,8 @@ func result_grade():
 	else:
 		grade = "[color=red] F [/color]"
 		
+	return grade
+	
 func get_notes_path(level_name: String) -> String:
 	var filename = level_info[level_name]["notes_path"]
 	var user_path = "user://beatmaps/" + filename
