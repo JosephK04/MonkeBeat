@@ -74,6 +74,7 @@ func _on_tapped():
 	else:
 		return
 	
+	pop_animation(note_array[0].proj)
 	note_array.pop_front()
 	Signals.emit_signal("pop_effect", "drum")
 	Signals.IncrementScore.emit(score)
@@ -83,3 +84,7 @@ func _on_tapped():
 	add_child(timing_text)
 	timing_text.global_position = Vector2(0, 100)
 	timing_text.SetTextInfo(press_score_text)
+
+func pop_animation(proj):
+	var tween = create_tween()
+	tween.tween_property(proj, "modulate:a", 0.0, 0.02)
