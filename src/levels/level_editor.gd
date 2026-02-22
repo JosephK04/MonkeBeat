@@ -82,8 +82,7 @@ func spawn_projectile(note: Dictionary, late_by):
 	var proj = CreateProjectile(note.direction)
 	active_hit_times.append({
 		"time": note.time,
-		"direction": note.direction,
-		"proj": proj
+		"direction": note.direction
 	})
 	
 	if late_by > 0.0:
