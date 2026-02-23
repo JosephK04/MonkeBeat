@@ -26,11 +26,12 @@ Use [W] [A] [S] [D] for character controls
 FullScreen for Best Experience"
 
 [node name="ReturnButton" type="TextureButton" parent="."]
-offset_left = 1578.0
-offset_top = 726.0
-offset_right = 2602.0
-offset_bottom = 1750.0
+offset_left = 1228.0
+offset_top = 371.0
+offset_right = 2252.0
+offset_bottom = 1395.0
 scale = Vector2(0.285, 0.285)
+pivot_offset = Vector2(450, 500)
 texture_normal = ExtResource("2_ua4pu")
 texture_hover = ExtResource("3_7x8ew")
 texture_click_mask = ExtResource("4_lfphf")

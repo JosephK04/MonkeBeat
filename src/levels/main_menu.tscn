@@ -32,22 +32,24 @@ texture_click_mask = ExtResource("3_3k0q2")
 
 [node name="Options" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 1250.0
-offset_top = 207.0
-offset_right = 2274.0
-offset_bottom = 1231.0
+offset_left = 1107.0
+offset_top = 128.0
+offset_right = 2131.0
+offset_bottom = 1152.0
 scale = Vector2(0.715, 0.715)
+pivot_offset = Vector2(463.55, 421.44)
 texture_normal = ExtResource("4_k3jgl")
 texture_hover = ExtResource("5_76r1k")
 texture_click_mask = ExtResource("6_mvttq")
 
 [node name="Edit" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 249.0
-offset_right = 1216.0
-offset_bottom = 1273.0
+offset_left = -44.0
+offset_top = 58.0
+offset_right = 980.0
+offset_bottom = 1082.0
 scale = Vector2(0.555, 0.555)
+pivot_offset = Vector2(460.205, 468.23)
 texture_normal = ExtResource("7_nprcd")
 texture_hover = ExtResource("8_0uks7")
 texture_click_mask = ExtResource("9_txhld")

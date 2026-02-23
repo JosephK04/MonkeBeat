@@ -18,10 +18,9 @@ var result_miss = 0
 var result_accuracy = 0.0
 var grade = ""
 #scores
-	
-var BASE_PERFECT_WINDOW = 0.06
-var BASE_GREAT_WINDOW = 0.1
-var BASE_OK_WINDOW = 0.14
+const BASE_PERFECT_WINDOW = 0.06
+const BASE_GREAT_WINDOW = 0.1
+const BASE_OK_WINDOW = 0.14
 
 #Parsing Storing logic for Maps
 var current_level_name = "CrescentExpressway"
@@ -35,12 +34,6 @@ var level_info = {
 		"display_name": "Crescent Expressway"
 	}
 }
-
-func _ready():
-	if OS.has_feature("web"):
-		BASE_PERFECT_WINDOW += 0.01
-		BASE_GREAT_WINDOW += 0.01
-		BASE_OK_WINDOW += 0.01
 
 func result_grade():
 	if result_accuracy == 100: 

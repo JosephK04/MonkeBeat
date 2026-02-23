@@ -14,12 +14,14 @@ config/name="MonkeBeat"
 run/main_scene="uid://co5rqvgakhvob"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://icon.svg"
+boot_splash/image="uid://3r7vr07y2eww"
+config/icon="uid://3r7vr07y2eww"
 
 [autoload]
 
-GameConfig="*res://game_config.gd"
-Signals="*res://signals.gd"
+Signals="*res://src/Globals/signals.gd"
+GameConfig="*res://src/Globals/game_config.gd"
+ButtonSfx="*res://src/Globals/button_sfx.gd"
 
 [display]
 
