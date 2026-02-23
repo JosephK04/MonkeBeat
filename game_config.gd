@@ -22,19 +22,7 @@ var grade = ""
 var BASE_PERFECT_WINDOW = 0.06
 var BASE_GREAT_WINDOW = 0.1
 var BASE_OK_WINDOW = 0.14
-
-#Parsing Storing logic for Maps
-var current_level_name = "CrescentExpressway"
-
 var audio_offset = 0
-
-var level_info = {
-	"CrescentExpressway": {
-		"notes_path": "CrescentExpressway.json",
-		"music": "res://music/crescent_expressway.ogg",
-		"display_name": "Crescent Expressway"
-	}
-}
 
 func _ready():
 	if OS.has_feature("web"):
@@ -59,7 +47,18 @@ func result_grade():
 		grade = "[color=red] F [/color]"
 		
 	return grade
-	
+
+#Parsing Storing logic for Maps
+var current_level_name = "CrescentExpressway"
+
+var level_info = {
+	"CrescentExpressway": {
+		"notes_path": "CrescentExpressway.json",
+		"music": "res://music/crescent_expressway.ogg",
+		"display_name": "Crescent Expressway"
+	}
+}
+
 func get_notes_path(level_name: String) -> String:
 	var filename = level_info[level_name]["notes_path"]
 	var user_path = "user://beatmaps/" + filename
@@ -90,6 +89,8 @@ func load_beatmap(level_name: String) -> Array:
 		file.close()
 		return data
 	return []
+	
+	
 	
 func get_music(level_name): 
 	return load(level_info[level_name]["music"])
