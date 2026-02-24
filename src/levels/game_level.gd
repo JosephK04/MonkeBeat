@@ -12,6 +12,7 @@ func _ready():
 	player.position = viewport_size / 2
 	player.scale = Vector2(0.5, 0.5)
 	Signals.connect("tapped", Callable(self, "_on_tapped"))
+	Signals.connect("released", Callable(self, "_on_released"))
 	Signals.connect("miss", Callable(self, "_on_miss"))
 	
 func _process(_delta):
@@ -32,7 +33,10 @@ func flash(color: Color, duration: float):
 	current_tween.tween_callback(func(): player.modulate = Color.WHITE)
 	
 func _on_tapped():
-	flash(Color.LIGHT_BLUE, 0.1)
+	player.modulate = Color.LIGHT_BLUE
+
+func _on_released():
+	player.modulate = Color.WHITE
 	
 func _on_miss():
 	flash(Color.RED, 0.1)

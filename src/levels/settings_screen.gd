@@ -1,6 +1,10 @@
 extends Node2D
-var offset_adjust = 0
+var offset_adjust = GameConfig.audio_offset
 
+func _ready(): 
+	offset_adjust = GameConfig.audio_offset * 1000
+	$OffsetNumber.text = "[center]" + str(offset_adjust) + "ms"
+	
 func _on_return_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://src/levels/main_menu.tscn")
 

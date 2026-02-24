@@ -28,5 +28,10 @@ func _input(_event):
 	
 	if (Input.is_action_just_pressed("click") or Input.is_action_just_pressed("click2")):
 		Signals.emit_signal("tapped")
+	
+	if Input.is_action_just_released("click") and not Input.is_action_pressed("click2"):
+		Signals.emit_signal("released")
+	if Input.is_action_just_released("click2") and not Input.is_action_pressed("click"):
+		Signals.emit_signal("released")
 		
 		
