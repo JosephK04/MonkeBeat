@@ -34,7 +34,7 @@ volume_db = -3.34
 
 [node name="miss_SFX" type="AudioStreamPlayer" parent="SoundFx"]
 stream = ExtResource("6_xm2e2")
-volume_db = -6.875
+volume_db = -13.433
 
 [node name="GameUI" parent="." instance=ExtResource("7_xm2e2")]
 

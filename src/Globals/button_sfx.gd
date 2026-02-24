@@ -7,7 +7,7 @@ var player: AudioStreamPlayer
 
 func _ready(): 
 	player = AudioStreamPlayer.new()
-	player.volume_db = -8
+	player.volume_db = -14
 	add_child(player)
 	get_tree().node_added.connect(_on_node_added)
 	connect_existing_buttons(get_tree().root)
@@ -32,7 +32,10 @@ func _on_node_added(node):
 			tween.tween_property(node, "scale", original_scale, 0.1)
 		)
 		if not node.is_in_group("noclicksound"):
-			node.pressed.connect(func(): play(click_sound))
+			node.pressed.connect(func(): 
+				player.volume_db = -18
+				play(click_sound)
+			)
 	
 func play(sound):
 	player.stream = sound
