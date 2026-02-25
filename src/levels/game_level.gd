@@ -8,12 +8,14 @@ var current_tween: Tween
 
 func _ready():
 	player = player_sprite.instantiate()
+	player.z_index = 5
 	add_child(player)
 	player.position = viewport_size / 2
 	player.scale = Vector2(0.5, 0.5)
 	Signals.connect("tapped", Callable(self, "_on_tapped"))
 	Signals.connect("released", Callable(self, "_on_released"))
 	Signals.connect("miss", Callable(self, "_on_miss"))
+	$Background.modulate = Color(1.0 - GameConfig.background_dim, 1.0 - GameConfig.background_dim, 1.0 - GameConfig.background_dim, 1.0)
 	
 func _process(_delta):
 	pass

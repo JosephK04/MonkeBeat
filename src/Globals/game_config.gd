@@ -27,6 +27,8 @@ var current_level_name = "CrescentExpressway"
 
 var audio_offset = 0
 
+var background_dim = 0.5
+
 var level_info = {
 	"CrescentExpressway": {
 		"notes_path": "CrescentExpressway.json",

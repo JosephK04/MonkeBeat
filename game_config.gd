@@ -10,6 +10,9 @@ var projectile_speed = 900.0
 
 const BASE_TRAVEL_TIME = 0.66
 
+#background dimness gameplay
+var background_dim = 1.0
+
 var ratio = (BASE_SPEED / projectile_speed)
 
 var result_score = 0
@@ -18,7 +21,7 @@ var result_miss = 0
 var result_accuracy = 0.0
 var grade = ""
 #scores
-	
+
 var BASE_PERFECT_WINDOW = 0.06
 var BASE_GREAT_WINDOW = 0.1
 var BASE_OK_WINDOW = 0.14

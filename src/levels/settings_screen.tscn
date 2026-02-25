@@ -80,8 +80,28 @@ text = "[center]
 "
 scroll_active = false
 
+[node name="DimSlider" type="HSlider" parent="."]
+offset_left = 423.0
+offset_top = 815.0
+offset_right = 929.0
+offset_bottom = 1021.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 75.0
+offset_top = 890.0
+offset_right = 581.0
+offset_bottom = 947.0
+theme_override_fonts/normal_font = ExtResource("1_ryji8")
+theme_override_font_sizes/normal_font_size = 36
+text = "Background Dim"
+scroll_active = false
+
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="OffsetPlus" to="." method="_on_offset_plus_pressed"]
 [connection signal="pressed" from="OffsetPlus2" to="." method="_on_offset_plus_2_pressed"]
 [connection signal="pressed" from="OffsetMinus" to="." method="_on_offset_minus_pressed"]
 [connection signal="pressed" from="OffsetMinus2" to="." method="_on_offset_minus_2_pressed"]
+[connection signal="value_changed" from="DimSlider" to="." method="_on_h_slider_value_changed"]

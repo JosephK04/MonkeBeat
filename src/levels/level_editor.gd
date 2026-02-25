@@ -91,20 +91,23 @@ func spawn_projectile(note: Dictionary, late_by):
 func CreateProjectile(spawn_dir: int):
 	var dir: Vector2
 	var proj_inst = projectile.instantiate()
-	get_parent().add_child(proj_inst)
+	proj_inst.z_index = 1
+	get_parent().get_node("PlayArea").add_child(proj_inst)
+	
+	var center = 1070.0 / 2
 	
 	if spawn_dir == GameConfig.direction.UP:
 		dir = Vector2.DOWN
-		proj_inst.setup(viewport_size.x/2, 0, dir, 0)
+		proj_inst.setup(center, 0, dir, 0)
 	elif spawn_dir == GameConfig.direction.DOWN:
 		dir = Vector2.UP
-		proj_inst.setup(viewport_size.x/2, viewport_size.y, dir, 0)
+		proj_inst.setup(center, 1070, dir, 0)
 	elif spawn_dir == GameConfig.direction.LEFT:
 		dir = Vector2.RIGHT
-		proj_inst.setup(420, viewport_size.y/2, dir, 90)
+		proj_inst.setup(0, center, dir, 90)
 	elif spawn_dir == GameConfig.direction.RIGHT:
 		dir = Vector2.LEFT
-		proj_inst.setup(1500, viewport_size.y/2, dir, 90)
+		proj_inst.setup(1070, center, dir, 90)
 	
 	return proj_inst
 
