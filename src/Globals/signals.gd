@@ -11,3 +11,5 @@ signal IncrementCombo()
 signal ResetCombo()
 
 signal note_judged(accuracy)
+
+signal JudgeCount(type)

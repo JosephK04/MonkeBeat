@@ -59,16 +59,16 @@ offset_top = 46.0
 offset_right = 1138.0
 offset_bottom = 292.0
 theme_override_fonts/normal_font = ExtResource("2_v8gv7")
-theme_override_font_sizes/normal_font_size = 85
+theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 scroll_active = false
 
 [node name="MissCount" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 84.0
-offset_top = 280.0
-offset_right = 1136.0
-offset_bottom = 526.0
+offset_left = 78.0
+offset_top = 603.0
+offset_right = 1130.0
+offset_bottom = 771.0
 theme_override_fonts/normal_font = ExtResource("2_v8gv7")
 theme_override_font_sizes/normal_font_size = 85
 bbcode_enabled = true
@@ -76,23 +76,23 @@ scroll_active = false
 
 [node name="MaxComboCount" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 483.0
-offset_right = 1134.0
-offset_bottom = 729.0
+offset_left = 85.0
+offset_top = 745.0
+offset_right = 1137.0
+offset_bottom = 904.0
 theme_override_fonts/normal_font = ExtResource("2_v8gv7")
-theme_override_font_sizes/normal_font_size = 85
+theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 scroll_active = false
 
 [node name="Percentage" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 78.0
-offset_top = 697.0
-offset_right = 1130.0
-offset_bottom = 943.0
+offset_left = 77.0
+offset_top = 869.0
+offset_right = 1129.0
+offset_bottom = 1021.0
 theme_override_fonts/normal_font = ExtResource("2_v8gv7")
-theme_override_font_sizes/normal_font_size = 85
+theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 scroll_active = false
 
@@ -108,12 +108,46 @@ bbcode_enabled = true
 text = "[center] "
 scroll_active = false
 
-[node name="FadeRect" type="ColorRect" parent="."]
+[node name="PerfectCount" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = -16.0
-offset_top = -18.0
-offset_right = 1939.0
-offset_bottom = 1104.0
+offset_left = 99.0
+offset_top = 233.0
+offset_right = 1151.0
+offset_bottom = 361.0
+theme_override_fonts/normal_font = ExtResource("2_v8gv7")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+scroll_active = false
+
+[node name="GreatCount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 339.0
+offset_right = 1151.0
+offset_bottom = 467.0
+theme_override_fonts/normal_font = ExtResource("2_v8gv7")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+scroll_active = false
+
+[node name="OkCount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 462.0
+offset_right = 1149.0
+offset_bottom = 590.0
+theme_override_fonts/normal_font = ExtResource("2_v8gv7")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+scroll_active = false
+
+[node name="FadeRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -12.0
+offset_top = -8.0
+offset_right = 1943.0
+offset_bottom = 1114.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 

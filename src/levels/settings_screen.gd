@@ -2,7 +2,9 @@ extends Node2D
 var offset_adjust = GameConfig.audio_offset
 
 func _ready(): 
+	
 	$DimSlider.value = GameConfig.background_dim
+	
 	offset_adjust = GameConfig.audio_offset * 1000
 	$OffsetNumber.text = "[center]" + str(offset_adjust) + "ms"
 	

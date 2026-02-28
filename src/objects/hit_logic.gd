@@ -7,6 +7,8 @@ var player
 var perfect_window = GameConfig.get_perfect_window()
 var great_window = GameConfig.get_great_window()
 var ok_window = GameConfig.get_ok_window()
+var miss_window = GameConfig.get_miss_window()
+
 var perfect_score = 100
 var great_score = 75
 var ok_score = 25
@@ -48,7 +50,7 @@ func _on_tapped():
 			Signals.emit_signal("miss")
 			Signals.ResetCombo.emit()
 			Signals.emit_signal("note_judged", "miss")
-			var press_score_text = "miss"
+			var press_score_text = "MISS"
 			var timing_text = score_text.instantiate()
 			add_child(timing_text)
 			timing_text.global_position = Vector2(0, 100)
@@ -63,14 +65,23 @@ func _on_tapped():
 		score = perfect_score
 		press_score_text = "PERFECT"
 		Signals.emit_signal("note_judged", "perfect")
+		Signals.emit_signal("JudgeCount", "perfect")
 	elif diff <= great_window:
 		score = great_score
 		press_score_text = "GREAT"
 		Signals.emit_signal("note_judged", "great")
+		Signals.emit_signal("JudgeCount", "great")
 	elif diff <= ok_window:
 		score = ok_score
 		press_score_text = "OK"
 		Signals.emit_signal("note_judged", "ok")
+		Signals.emit_signal("JudgeCount", "ok")
+	elif diff <= miss_window:
+		score = 0
+		press_score_text = "MISS"
+		Signals.emit_signal("miss")
+		Signals.ResetCombo.emit()
+		Signals.emit_signal("note_judged", "miss")
 	else:
 		return
 	

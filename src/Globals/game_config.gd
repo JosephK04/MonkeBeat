@@ -17,10 +17,15 @@ var result_max_combo = 0
 var result_miss = 0
 var result_accuracy = 0.0
 var grade = ""
+var perfect_count = 0
+var great_count = 0
+var ok_count = 0
+
 #scores
 const BASE_PERFECT_WINDOW = 0.06
 const BASE_GREAT_WINDOW = 0.1
 const BASE_OK_WINDOW = 0.14
+const BASE_MISS_WINDOW = 0.28
 
 #Parsing Storing logic for Maps
 var current_level_name = "CrescentExpressway"
@@ -102,3 +107,17 @@ func get_great_window():
 func get_ok_window():
 	return BASE_OK_WINDOW * (BASE_SPEED / projectile_speed)
 	
+func get_miss_window():
+	return BASE_MISS_WINDOW * (BASE_SPEED / projectile_speed)
+
+func _ready(): 
+	Signals.JudgeCount.connect(JudgeCount)
+	
+func JudgeCount(type):
+	match type: 
+		"perfect":
+			perfect_count += 1
+		"great":
+			great_count += 1
+		"ok":
+			ok_count += 1
