@@ -4,7 +4,10 @@ extends Node2D
 @onready var viewport_size = get_parent().get_viewport_rect().size
 var parent: Node2D
 var in_edit_mode: bool
+
+#CURRENT LEVEL NAME TO LOAD
 var current_level_name = "CrescentExpressway"
+
 var recording = []
 var notes_remaining = 0
 var notes = []

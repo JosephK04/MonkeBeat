@@ -27,20 +27,9 @@ const BASE_GREAT_WINDOW = 0.1
 const BASE_OK_WINDOW = 0.14
 const BASE_MISS_WINDOW = 0.28
 
-#Parsing Storing logic for Maps
-var current_level_name = "CrescentExpressway"
-
 var audio_offset = 0
 
 var background_dim = 0.5
-
-var level_info = {
-	"CrescentExpressway": {
-		"notes_path": "CrescentExpressway.json",
-		"music": "res://music/crescent_expressway.ogg",
-		"display_name": "Crescent Expressway"
-	}
-}
 
 func result_grade():
 	if result_accuracy == 100: 
@@ -60,8 +49,17 @@ func result_grade():
 		
 	return grade
 	
+#Parsing Storing logic for Maps
+var current_level_name = "CrescentExpressway"
+
+var level_info = {
+	"CrescentExpressway": {
+		"display_name": "Crescent Expressway"
+	}
+}
+	
 func get_notes_path(level_name: String) -> String:
-	var filename = level_info[level_name]["notes_path"]
+	var filename = level_name
 	var user_path = "user://beatmaps/" + filename
 	var res_path = "res://beatmaps/" + filename
 	
@@ -71,28 +69,43 @@ func get_notes_path(level_name: String) -> String:
 		return res_path
 
 func save_beatmap(level_name: String, notes: Array):
-	var filename = level_info[level_name]["notes_path"]
-	var dir_path = "user://beatmaps"
+	var filename = level_name
+	var dir_path = "user://beatmaps/" + filename
 	
 	if not DirAccess.dir_exists_absolute(dir_path):
 		DirAccess.make_dir_absolute(dir_path)
-		
-	var file = FileAccess.open(dir_path + "/" + filename, FileAccess.WRITE)
+	
+	var path = dir_path + "/" + level_name + ".json" #path PLUS DIFFICULTY LATER
+	var file = FileAccess.open(path, FileAccess.WRITE)
 	file.store_string(JSON.stringify(notes))
 	file.close()
-	print("Saved to: ", dir_path + "/" + filename)
+	print("Saved to: ", path)
 	
-func load_beatmap(level_name: String) -> Array:
-	var path = get_notes_path(level_name)
-	if FileAccess.file_exists(path):
-		var file = FileAccess.open(path, FileAccess.READ)
-		var data = JSON.parse_string(file.get_as_text())
-		file.close()
-		return data
+func load_beatmap(level_name: String) -> Array: #difficulty as parameter later
+	var path = get_notes_path(level_name)#+ difficulty
+	var dir = DirAccess.open(path)
+	dir.list_dir_begin()
+	var filename = dir.get_next()
+	while filename != "":
+		if filename.get_extension() in ["json"]:
+			var file = FileAccess.open(path + "/" + filename, FileAccess.READ)
+			var data = JSON.parse_string(file.get_as_text())
+			file.close()
+			return data
+		filename = dir.get_next()
 	return []
 	
+	
 func get_music(level_name): 
-	return load(level_info[level_name]["music"])
+	var path = get_notes_path(level_name)
+	var dir = DirAccess.open(path)
+	dir.list_dir_begin()
+	var filename = dir.get_next()
+	while filename != "":
+		if filename.get_extension() in ["ogg", "mp3", "wav"]:
+			return load(path + "/" + filename)
+		filename = dir.get_next()
+	return null
 
 #ratios 
 func get_travel_time():
